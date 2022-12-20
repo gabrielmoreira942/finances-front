@@ -31,11 +31,17 @@
 </template>
 
 <script>
+import Service from '../config/Service'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  async created(){
+     Service.request("GET", 'v3/agregados').then((a) => {
+       console.log(a);
+     })
+  },
 }
 </script>
 
